@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Game Generator</title>
+    <link rel="stylesheet" type="text/css" href="generate.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body.popup {
+        font-family: "Quicksand", sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        width: 300px;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      li {
+        margin-bottom: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="#" class="logo">Game Generator</a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="developer.html">Developer</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container">
+      <h1>Game Generator</h1>
+      <form id="gameForm">
+        <label for="genre">Genre:</label>
+        <select id="genre" name="genre">
+          <option value="puzzle">Puzzle</option>
+          <option value="action">Action</option>
+          <option value="strategy">Strategy</option>
+          <option value="adventure">Adventure</option>
+          <option value="roleplaying">Role playing</option>
+          <option value="sport">Sport</option>
+          <option value="simulation">Simulation</option>
+          <option value="racing">Racing</option>
+          <option value="fighting">Fighting</option>
+          <option value="platformer">Platformer</option>
+          <option value="cardboard">Card and Board Games</option>
+        </select>
+
+        <label for="platform">Platform:</label>
+        <select id="platform" name="platform">
+          <option value="mobile">Mobile</option>
+          <option value="pc">PC</option>
+          <option value="gameconsoles">Game Consoles</option>
+          <option value="webbrowsers">Web Browsers</option>
+          <option value="cloudgamingservices">Cloud Gaming Services</option>
+        </select>
+
+        <label for="difficulty">Difficulty:</label>
+        <select id="difficulty" name="difficulty">
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+
+        <button type="button" onclick="generateGame()">Generate Game</button>
+      </form>
+    </div>
+
+    <script>
+      var games = {
+        puzzle: [
+          "Sudoku",
+          "Tetris",
+          "Portal",
+          "Bejeweled",
+          "Cut the Rope",
+          "Lemmings",
+          "Minesweeper",
+          "Candy Crush",
+          "The Witness",
+          "Braid",
+          "Puyo Puyo",
+          "Professor Layton",
+          "The Room",
+          "Myst",
+          "Zuma",
+          "Lumines",
+          "Fez",
+        ],
+      };
+
+      function generateGame() {
+        var genre = document.getElementById("genre").value;
+        var platform = document.getElementById("platform").value;
+        var difficulty = document.getElementById("difficulty").value;
+        var gameList = document.createElement("ul");
+
+        var gamesCopy = games[genre].slice();
+        for (var i = 0; i < 10; i++) {
+          var randomIndex = Math.floor(Math.random() * gamesCopy.length);
+          var listItem = document.createElement("li");
+          listItem.textContent = gamesCopy[randomIndex];
+          gameList.appendChild(listItem);
+          gamesCopy.splice(randomIndex, 1);
+        }
+
+        var popup = window.open("", "Game List", "width=400,height=400");
+        popup.document.body.className = "popup";
+        popup.document.body.appendChild(gameList);
+      }
+    </script>
+  </body>
+</html>

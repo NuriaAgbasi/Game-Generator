@@ -1,0 +1,172 @@
+* {
+  box-sizing: border-box;
+  font-family: "Lato", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10000;
+}
+
+.navbar .logo {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 2em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: "Comic Sans MS", cursive;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar ul li {
+  list-style: none;
+  margin-left: 20px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  padding: 6px 15px;
+  color: #fff;
+  border-radius: 20px;
+}
+
+.navbar ul li a:hover {
+  background: #fff;
+  color: #2b1055;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(99, 72, 72, 0.055)),
+    url(pexels-soumil-kumar-735911.jpg);
+  background-position: center;
+  background-size: cover;
+  padding-left: 8%;
+  padding-right: 8%;
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+  min-height: 88%;
+  align-items: center;
+}
+
+.col {
+  flex-basis: 50%;
+}
+
+h1 {
+  color: #fff;
+  font-size: 50px;
+  font-family: "Open Sans", sans-serif;
+  margin-top: 60px;
+}
+
+p {
+  color: white;
+  margin-top: 120px;
+  font-size: 20px;
+  line-height: 21px;
+  font-family: "Roboto Condensed", sans-serif;
+  font-weight: 400;
+  margin-left: 70px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 30px;
+  }
+
+  .container {
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+
+  .row {
+    flex-direction: column;
+    min-height: auto; /* Use min-height instead of height */
+    align-items: flex-start; /* Align items to the start */
+  }
+
+  .col {
+    flex-basis: 100%;
+  }
+
+  h1 {
+    font-size: 40px;
+    margin-top: 140px; /* Adjust margin-top as needed */
+  }
+
+  p {
+    margin-top: 40px; /* Adjust margin-top as needed */
+    font-size: 18px;
+  }
+  .footer {
+    position: static; /* Reset position to static */
+    margin-top: 20px; /* Add margin-top to create space below the content */
+  }
+}
+
+/* Media query for max-width 480px and below */
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 20px;
+  }
+
+  .container {
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+
+  h1 {
+    font-size: 30px;
+    margin-top: 40px; /* Adjust margin-top as needed */
+  }
+
+  p {
+    margin-top: 30px; /* Adjust margin-top as needed */
+    font-size: 16px;
+  }
+  footer {
+    position: static; /* Reset position to static */
+    margin-top: 20px; /* Add margin-top to create space below the content */
+  }
+}
+/* Media query for TV screens */
+
+@media (min-width: 1200px) {
+  p {
+    font-size: 21px;
+  }
+  .footer {
+    position: relative;
+  }
+}
